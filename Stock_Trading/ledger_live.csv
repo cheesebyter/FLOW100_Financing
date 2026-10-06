@@ -1,0 +1,7 @@
+timestamp_utc,type,ticker,quantity,price,amount,realized_pl,cash_balance,rationale,order_id
+2026-09-14T11:57:16+00:00,OPENING,,,,204.5,,204.5,Startkapital 250.0 USD @ FX 0.818,
+2026-09-24T13:26:15+00:00,BUY,AAPL_US_EQ,0.35,274.51428571428573,-96.08,,108.42,"Nachtraegliche Buchung (Reconcile-Skript, Order 57355359986, urspruenglich faelschlich als 404 quittiert, Preis aus Order-Feld 'price_chf_per_share')",57355359986
+2026-09-24T13:26:15+00:00,BUY,AAPL_US_EQ,0.02,281.5,-5.63,,102.79,"Nachtraegliche Buchung (Reconcile-Skript, Order 57762435617, urspruenglich faelschlich als 404 quittiert, Preis aus Order-Feld 'price_chf_per_share')",57762435617
+2026-09-24T13:26:15+00:00,BUY,AAPL_US_EQ,0.33,281.1818181818182,-92.79,,10.0,"Nachtraegliche Buchung (Reconcile-Skript, Order 57762436136, urspruenglich faelschlich als 404 quittiert, Preis aus Order-Feld 'price_chf_per_share')",57762436136
+2026-09-25T20:00:05+00:00,BUY,AMD_US_EQ,0.01,528.0,-5.28,,4.72,"Auto-Booking nach Fill (Order 57861561223, Preis aus Order-Feld 'price_chf_per_share')",57861561223
+2026-09-29T15:15:02+00:00,DEPOSIT,,,,120.0,,124.72,"Restguthaben auf T212-Konto, nachtraeglich entdeckt und verbucht (29.09.2026)",

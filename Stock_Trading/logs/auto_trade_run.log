@@ -1,0 +1,243 @@
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 820.07 CHF (Peak: 826.55 CHF, Drawdown: -0.78%)
+Verfuegbares Cash (API): 125.75 CHF | Offene Ledger-Positionen: 0
+
+Signale:
+  TSLA_US_EQ      HOLD  close=380.12 rsi14=60.6  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=337.02 rsi14=62.9  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=614.61 rsi14=71.0  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=249.27 rsi14=44.1  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=337.83 rsi14=45.1  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=354.99 rsi14=44.7  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=71.36 rsi14=37.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=237.58 rsi14=53.2  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-23T20:15:06+00:00", "total_value_chf": 820.07, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0078}, "drawdown_alert": false, "available_to_trade_chf": 125.75, "open_positions_count": 0, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 380.1199951171875, "rsi14": 60.594143172977624, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 337.0199890136719, "rsi14": 62.94319361073251, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 614.6099853515625, "rsi14": 71.00438495351266, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.27000427246094, "rsi14": 44.07415719162127, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 337.8299865722656, "rsi14": 45.11435951949055, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 354.989990234375, "rsi14": 44.72434465665457, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 71.36000061035156, "rsi14": 37.08249458124923, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 237.5800018310547, "rsi14": 53.20423293585172, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 819.41 CHF (Peak: 826.55 CHF, Drawdown: -0.86%)
+Verfuegbares Cash (API): 125.77 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=377.94 rsi14=59.1  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=335.92 rsi14=61.4  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       BUY   close=629.26 rsi14=72.8  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=249.38 rsi14=44.2  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=342.36 rsi14=48.6  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=350.36 rsi14=42.3  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=71.72 rsi14=38.2  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=238.22 rsi14=53.6  Keine Entry-/Exit-Bedingung erfuellt
+
+Ausgefuehrte/vorgeschlagene Aktionen:
+  {'ticker': 'AMD_US_EQ', 'side': 'buy', 'quantity': 0.01, 'notional_chf_est': 6.29, 'reason': 'Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]', 'order_id': '57861561223', 'order_status': 'NEW'}
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-24T20:15:06+00:00", "total_value_chf": 819.41, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0086}, "drawdown_alert": false, "available_to_trade_chf": 125.77, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 377.94000244140625, "rsi14": 59.138432599235834, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 335.9200134277344, "rsi14": 61.35981427526371, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 629.260009765625, "rsi14": 72.82495967176081, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.3800048828125, "rsi14": 44.19518218781976, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 342.3599853515625, "rsi14": 48.59355021282612, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 350.3599853515625, "rsi14": 42.34210984791052, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 71.72000122070312, "rsi14": 38.22368737681036, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 238.22000122070312, "rsi14": 53.64140280082227, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [{"ticker": "AMD_US_EQ", "side": "buy", "quantity": 0.01, "notional_chf_est": 6.29, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]", "order_id": "57861561223", "order_status": "NEW"}], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 825.91 CHF (Peak: 826.55 CHF, Drawdown: -0.08%)
+Verfuegbares Cash (API): 120.51 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=372.11 rsi14=55.3  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      BUY   close=341.07 rsi14=65.7  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMD_US_EQ       BUY   close=630.63 rsi14=73.0  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=249.67 rsi14=44.5  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.92 rsi14=49.8  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=352.81 rsi14=44.0  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=71.14 rsi14=37.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.02 rsi14=50.3  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AAPL_US_EQ      buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-25T20:15:05+00:00", "total_value_chf": 825.91, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0008}, "drawdown_alert": false, "available_to_trade_chf": 120.51, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 372.1099853515625, "rsi14": 55.31142286642093, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "BUY", "close": 341.07000732421875, "rsi14": 65.70914712423834, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 630.6300048828125, "rsi14": 72.99571509535542, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.6699981689453, "rsi14": 44.53594345772326, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.9200134277344, "rsi14": 49.774317257847564, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 352.80999755859375, "rsi14": 44.040683546946774, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 71.1449966430664, "rsi14": 37.067227717482204, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.02000427246094, "rsi14": 50.29825683810588, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AAPL_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}, {"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 824.99 CHF (Peak: 826.55 CHF, Drawdown: -0.19%)
+Verfuegbares Cash (API): 120.51 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=372.11 rsi14=55.3  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      BUY   close=341.07 rsi14=65.7  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMD_US_EQ       BUY   close=630.63 rsi14=73.0  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=249.67 rsi14=44.5  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.92 rsi14=49.8  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=352.81 rsi14=44.0  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=71.15 rsi14=37.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.02 rsi14=50.3  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AAPL_US_EQ      buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-26T20:15:07+00:00", "total_value_chf": 824.99, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0019}, "drawdown_alert": false, "available_to_trade_chf": 120.51, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 372.1099853515625, "rsi14": 55.31142286642093, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "BUY", "close": 341.07000732421875, "rsi14": 65.70914709762945, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 630.6300048828125, "rsi14": 72.99571509535542, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.6699981689453, "rsi14": 44.53594345772326, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.9200134277344, "rsi14": 49.77431726249068, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 352.80999755859375, "rsi14": 44.04068348818647, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 71.1500015258789, "rsi14": 37.07699165364451, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.02000427246094, "rsi14": 50.29825683126521, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AAPL_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}, {"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 824.99 CHF (Peak: 826.55 CHF, Drawdown: -0.19%)
+Verfuegbares Cash (API): 120.51 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=372.11 rsi14=55.3  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      BUY   close=341.07 rsi14=65.7  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMD_US_EQ       BUY   close=630.63 rsi14=73.0  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=249.67 rsi14=44.5  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.92 rsi14=49.8  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=352.81 rsi14=44.0  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=71.15 rsi14=37.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.02 rsi14=50.3  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AAPL_US_EQ      buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-27T20:15:05+00:00", "total_value_chf": 824.99, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0019}, "drawdown_alert": false, "available_to_trade_chf": 120.51, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 372.1099853515625, "rsi14": 55.31142286642093, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "BUY", "close": 341.07000732421875, "rsi14": 65.70914712423834, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 630.6300048828125, "rsi14": 72.99571509535542, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.6699981689453, "rsi14": 44.53594345772326, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.9200134277344, "rsi14": 49.77431726249068, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 352.80999755859375, "rsi14": 44.04068348819058, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 71.1500015258789, "rsi14": 37.07699165364451, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.02000427246094, "rsi14": 50.29825683136905, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AAPL_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}, {"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 824.42 CHF (Peak: 826.55 CHF, Drawdown: -0.26%)
+Verfuegbares Cash (API): 120.52 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=357.45 rsi14=47.1  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=338.40 rsi14=61.8  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=607.87 rsi14=65.6  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=246.15 rsi14=41.2  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=342.75 rsi14=48.9  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=349.57 rsi14=42.3  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=69.23 rsi14=33.4  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=227.27 rsi14=45.5  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-28T20:15:06+00:00", "total_value_chf": 824.42, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0026}, "drawdown_alert": false, "available_to_trade_chf": 120.52, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 357.45001220703125, "rsi14": 47.06386631027431, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 338.3999938964844, "rsi14": 61.823794173992155, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 607.8699951171875, "rsi14": 65.61886643422193, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 246.14999389648438, "rsi14": 41.24381169115133, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 342.75, "rsi14": 48.867725256093024, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 349.57000732421875, "rsi14": 42.26734874963287, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 69.2300033569336, "rsi14": 33.43810841204386, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 227.27000427246094, "rsi14": 45.47939309201995, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 820.43 CHF (Peak: 826.55 CHF, Drawdown: -0.74%)
+Verfuegbares Cash (API): 120.52 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=352.84 rsi14=44.8  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=329.40 rsi14=50.9  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=607.57 rsi14=65.5  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=246.67 rsi14=41.9  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=340.92 rsi14=47.4  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=355.10 rsi14=46.2  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=70.30 rsi14=37.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=225.31 rsi14=44.2  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-29T20:15:05+00:00", "total_value_chf": 820.43, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0074}, "drawdown_alert": false, "available_to_trade_chf": 120.52, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 352.8399963378906, "rsi14": 44.80153057932566, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 329.3999938964844, "rsi14": 50.89870176811098, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 607.5700073242188, "rsi14": 65.52487346986837, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 246.6699981689453, "rsi14": 41.92676528773927, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 340.9200134277344, "rsi14": 47.41311452747521, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 355.1000061035156, "rsi14": 46.245810398418705, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 70.30000305175781, "rsi14": 37.14065824078618, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 225.30999755859375, "rsi14": 44.1565005643075, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 822.39 CHF (Peak: 826.55 CHF, Drawdown: -0.50%)
+Verfuegbares Cash (API): 120.52 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=354.81 rsi14=46.0  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=333.02 rsi14=54.4  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=611.76 rsi14=66.3  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=249.15 rsi14=45.2  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     HOLD  close=344.08 rsi14=50.2  Keine Entry-/Exit-Bedingung erfuellt
+  AVGO_US_EQ      SELL  close=351.19 rsi14=43.9  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=69.58 rsi14=35.7  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=229.57 rsi14=47.7  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-09-30T20:15:08+00:00", "total_value_chf": 822.39, "peak_to_date_chf": 826.55, "drawdown_pct": -0.005}, "drawdown_alert": false, "available_to_trade_chf": 120.52, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 354.80999755859375, "rsi14": 45.996183844251334, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 333.0199890136719, "rsi14": 54.38994594713141, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 611.760009765625, "rsi14": 66.25200043555819, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 249.14999389648438, "rsi14": 45.198360404685516, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "HOLD", "close": 344.0799865722656, "rsi14": 50.17130596061972, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 351.19000244140625, "rsi14": 43.94016693228375, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 69.58000183105469, "rsi14": 35.7015403364465, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 229.57000732421875, "rsi14": 47.716212895853104, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 817.65 CHF (Peak: 826.55 CHF, Drawdown: -1.08%)
+Verfuegbares Cash (API): 120.57 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=354.11 rsi14=45.6  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=330.32 rsi14=51.5  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=615.73 rsi14=67.0  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=248.23 rsi14=44.2  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=338.24 rsi14=45.4  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=343.64 rsi14=39.8  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=67.85 rsi14=32.4  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=236.69 rsi14=53.1  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-10-01T20:15:08+00:00", "total_value_chf": 817.65, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0108}, "drawdown_alert": false, "available_to_trade_chf": 120.57, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 354.1099853515625, "rsi14": 45.61836989375897, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 330.32000732421875, "rsi14": 51.451467340146294, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 615.72998046875, "rsi14": 66.96298893263145, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 248.22999572753906, "rsi14": 44.20350212985917, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 338.239990234375, "rsi14": 45.42895592139559, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 343.6400146484375, "rsi14": 39.8125999691155, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 67.8499984741211, "rsi14": 32.448156149055976, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 236.69000244140625, "rsi14": 53.09756473777677, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 821.82 CHF (Peak: 826.55 CHF, Drawdown: -0.57%)
+Verfuegbares Cash (API): 120.57 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=370.59 rsi14=55.0  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=333.69 rsi14=54.7  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       BUY   close=633.91 rsi14=70.1  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=251.52 rsi14=48.6  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.50 rsi14=50.0  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=355.14 rsi14=47.8  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=67.06 rsi14=31.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.69 rsi14=51.5  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-10-02T20:15:05+00:00", "total_value_chf": 821.82, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0057}, "drawdown_alert": false, "available_to_trade_chf": 120.57, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 370.5899963378906, "rsi14": 54.99157328211436, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 333.69000244140625, "rsi14": 54.7383723689806, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 633.9099731445312, "rsi14": 70.07239834116592, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 251.52000427246094, "rsi14": 48.563668276219744, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.5, "rsi14": 50.0120834479163, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 355.1400146484375, "rsi14": 47.84851485875585, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 67.05999755859375, "rsi14": 31.056395483191636, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.69000244140625, "rsi14": 51.49425287567833, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 821.19 CHF (Peak: 826.55 CHF, Drawdown: -0.65%)
+Verfuegbares Cash (API): 120.57 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=370.59 rsi14=55.0  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=333.69 rsi14=54.7  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       BUY   close=633.91 rsi14=70.1  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=251.52 rsi14=48.6  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.50 rsi14=50.0  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=355.14 rsi14=47.8  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=67.06 rsi14=31.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.69 rsi14=51.5  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-10-03T20:15:05+00:00", "total_value_chf": 821.19, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0065}, "drawdown_alert": false, "available_to_trade_chf": 120.57, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 370.5899963378906, "rsi14": 54.99157328211436, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 333.69000244140625, "rsi14": 54.738372368984855, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 633.9099731445312, "rsi14": 70.07239834116592, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 251.52000427246094, "rsi14": 48.563668276219744, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.5, "rsi14": 50.012083447917306, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 355.1400146484375, "rsi14": 47.84851485886669, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 67.05999755859375, "rsi14": 31.056395483191636, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.69000244140625, "rsi14": 51.494252869712625, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 821.19 CHF (Peak: 826.55 CHF, Drawdown: -0.65%)
+Verfuegbares Cash (API): 120.57 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=370.59 rsi14=55.0  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=333.69 rsi14=54.7  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       BUY   close=633.91 rsi14=70.1  Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]
+  AMZN_US_EQ      SELL  close=251.52 rsi14=48.6  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     SELL  close=343.50 rsi14=50.0  Trendbruch: Kurs < SMA50
+  AVGO_US_EQ      SELL  close=355.14 rsi14=47.8  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=67.06 rsi14=31.1  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=234.69 rsi14=51.5  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+Uebersprungen:
+  AMD_US_EQ       buy  -- Bereits offene Position fuer diesen Ticker im Ledger
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-10-04T20:15:07+00:00", "total_value_chf": 821.19, "peak_to_date_chf": 826.55, "drawdown_pct": -0.0065}, "drawdown_alert": false, "available_to_trade_chf": 120.57, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 370.5899963378906, "rsi14": 54.99157328211436, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 333.69000244140625, "rsi14": 54.7383723689806, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "BUY", "close": 633.9099731445312, "rsi14": 70.07239834116592, "reason": "Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 251.52000427246094, "rsi14": 48.563668276219744, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "SELL", "close": 343.5, "rsi14": 50.012083447917306, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 355.1400146484375, "rsi14": 47.848514858756026, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 67.05999755859375, "rsi14": 31.056395483191636, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 234.69000244140625, "rsi14": 51.49425287567712, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": [{"ticker": "AMD_US_EQ", "side": "buy", "reason": "Bereits offene Position fuer diesen Ticker im Ledger"}]}
+=== Auto-Trade Lauf (live, execute=True) ===
+Equity: 828.76 CHF (Peak: 828.76 CHF, Drawdown: 0.00%)
+Verfuegbares Cash (API): 120.57 CHF | Offene Ledger-Positionen: 2
+
+Signale:
+  TSLA_US_EQ      HOLD  close=378.73 rsi14=58.8  Keine Entry-/Exit-Bedingung erfuellt
+  AAPL_US_EQ      HOLD  close=332.89 rsi14=53.8  Keine Entry-/Exit-Bedingung erfuellt
+  AMD_US_EQ       HOLD  close=631.75 rsi14=69.2  Keine Entry-/Exit-Bedingung erfuellt
+  AMZN_US_EQ      SELL  close=251.40 rsi14=48.4  Trendbruch: Kurs < SMA50
+  GOOGL_US_EQ     HOLD  close=346.47 rsi14=52.4  Keine Entry-/Exit-Bedingung erfuellt
+  AVGO_US_EQ      SELL  close=362.51 rsi14=52.2  Trendbruch: Kurs < SMA50
+  NFLX_US_EQ      SELL  close=67.50 rsi14=32.8  Trendbruch: Kurs < SMA50
+  CRM_US_EQ       HOLD  close=229.79 rsi14=47.7  Keine Entry-/Exit-Bedingung erfuellt
+
+Keine Aktionen (kein aktionables Signal).
+
+SUMMARY_JSON: {"env": "live", "execute": true, "equity": {"timestamp_utc": "2026-10-05T20:15:06+00:00", "total_value_chf": 828.76, "peak_to_date_chf": 828.76, "drawdown_pct": 0.0}, "drawdown_alert": false, "available_to_trade_chf": 120.57, "open_positions_count": 2, "signals": [{"ticker": "TSLA_US_EQ", "signal": "HOLD", "close": 378.7300109863281, "rsi14": 58.771515157633786, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AAPL_US_EQ", "signal": "HOLD", "close": 332.8900146484375, "rsi14": 53.80707333657847, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMD_US_EQ", "signal": "HOLD", "close": 631.75, "rsi14": 69.23859251684658, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AMZN_US_EQ", "signal": "SELL", "close": 251.39999389648438, "rsi14": 48.415046280367875, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "GOOGL_US_EQ", "signal": "HOLD", "close": 346.4700012207031, "rsi14": 52.440863331662925, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}, {"ticker": "AVGO_US_EQ", "signal": "SELL", "close": 362.510009765625, "rsi14": 52.24868219917283, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "NFLX_US_EQ", "signal": "SELL", "close": 67.5, "rsi14": 32.785612046047774, "reason": "Trendbruch: Kurs < SMA50"}, {"ticker": "CRM_US_EQ", "signal": "HOLD", "close": 229.7899932861328, "rsi14": 47.69443388478076, "reason": "Keine Entry-/Exit-Bedingung erfuellt"}], "actions": [], "skipped": []}

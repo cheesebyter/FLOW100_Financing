@@ -1,0 +1,11 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-09-14T11:52:34+00:00,live,decision,TSLA_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-14T11:52:34+00:00,live,decision,AAPL_US_EQ,,n/a,,,,,,signal_buy,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-09-14T11:52:34+00:00,live,decision,AMD_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-14T11:52:34+00:00,live,decision,AMZN_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-14T11:52:34+00:00,live,decision,GOOGL_US_EQ,,n/a,,,,,,signal_sell,Trendbruch: Kurs < SMA50,True
+2026-09-14T11:52:34+00:00,live,decision,AVGO_US_EQ,,n/a,,,,,,signal_sell,Trendbruch: Kurs < SMA50,True
+2026-09-14T11:52:34+00:00,live,decision,NFLX_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-14T11:52:34+00:00,live,decision,CRM_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-14T11:57:28+00:00,live,buy,AAPL_US_EQ,,market,0.35,,,,,dry_run,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-09-14T11:57:34+00:00,live,buy,AAPL_US_EQ,,market,0.35,,,,57355359986,placed,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True

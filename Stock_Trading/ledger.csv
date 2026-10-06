@@ -1,0 +1,3 @@
+timestamp_utc,type,ticker,quantity,price,amount,realized_pl,cash_balance,rationale,order_id
+2026-09-09T15:41:55+00:00,OPENING,,,,202.5,,202.5,Startkapital 250.0 USD @ FX 0.81,
+2026-09-09T15:42:02+00:00,BUY,NVDA_US_EQ,0.2,188.8,-37.76,,164.74,Signal BUY,54500364507

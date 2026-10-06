@@ -1,0 +1,4 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-09-23T09:21:52+00:00,live,buy,AAPL_US_EQ,,n/a,,,,,57355359986,ack_not_found,"Order 57355359986 von T212 nicht mehr auffindbar (404) -- vermutlich unausgefuehrt abgelaufen. Kein Fill, keine Ledger-Buchung. Einmalig quittiert.",True
+2026-09-23T20:00:03+00:00,live,buy,AAPL_US_EQ,,n/a,,,,,57762435617,ack_not_found,"Order 57762435617 von T212 nicht mehr auffindbar (404) -- vermutlich unausgefuehrt abgelaufen. Kein Fill, keine Ledger-Buchung. Einmalig quittiert.",True
+2026-09-23T20:00:06+00:00,live,buy,AAPL_US_EQ,,n/a,,,,,57762436136,ack_not_found,"Order 57762436136 von T212 nicht mehr auffindbar (404) -- vermutlich unausgefuehrt abgelaufen. Kein Fill, keine Ledger-Buchung. Einmalig quittiert.",True

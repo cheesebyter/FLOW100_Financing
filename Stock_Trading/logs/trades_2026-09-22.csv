@@ -1,0 +1,13 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-09-22T22:32:59+00:00,live,decision,TSLA_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-22T22:32:59+00:00,live,decision,AAPL_US_EQ,,n/a,,,,,,signal_buy,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-09-22T22:32:59+00:00,live,decision,AMD_US_EQ,,n/a,,,,,,signal_buy,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-09-22T22:32:59+00:00,live,decision,AMZN_US_EQ,,n/a,,,,,,signal_sell,Trendbruch: Kurs < SMA50,True
+2026-09-22T22:32:59+00:00,live,decision,GOOGL_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-22T22:32:59+00:00,live,decision,AVGO_US_EQ,,n/a,,,,,,signal_sell,Trendbruch: Kurs < SMA50,True
+2026-09-22T22:32:59+00:00,live,decision,NFLX_US_EQ,,n/a,,,,,,signal_sell,Trendbruch: Kurs < SMA50,True
+2026-09-22T22:32:59+00:00,live,decision,CRM_US_EQ,,n/a,,,,,,signal_hold,Keine Entry-/Exit-Bedingung erfuellt,True
+2026-09-22T22:33:52+00:00,live,buy,AAPL_US_EQ,,market,0.33,,,,,dry_run,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-09-22T22:34:19+00:00,live,buy,AAPL_US_EQ,,market,0.33,,,,,rejected,"Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80] | Fehler: T212 API Fehler 400: {""type"":""/api-errors/insufficient-free-for-stocks-buy"",""title"":""Error while placing the order"",""status"":400,""detail"":""Insufficient funds"",""traceId"":""15636fd836987e2465775415729b5702""}",False
+2026-09-22T23:06:27+00:00,live,buy,AAPL_US_EQ,,market,0.02,,,,57762435617,placed,Diagnose: insufficient-funds-Fehler eingrenzen,True
+2026-09-22T23:22:26+00:00,live,buy,AAPL_US_EQ,,market,0.33,,,,57762436136,placed,"Signal BUY (SMA50>SMA200, 20d-Breakout, RSI im Zielband)",True

@@ -1,0 +1,7 @@
+customer_id,company_name,email_address,city
+K100,Alpenblick AG,kontakt@alpenblick.example,St. Gallen
+K102,Muster Produktion,neu@muster.example,Arbon
+K106,"See, Software GmbH",hello@see.example,Rorschach
+K107,Grüezi IT,info@gruezi.example,Zürich
+,Fehlende Nummer,mail@nummer.example,Bern
+K108,Delta Services,team@delta.example,Basel

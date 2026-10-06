@@ -1,0 +1,7 @@
+Kundennummer;Firma;Email;Ort
+ K100 ; Alpenblick AG ; kontakt@alpenblick.example ; St. Gallen
+K101;Bodensee Technik;info@bodensee.example;Rorschach
+K102;Muster Produktion;office@muster.example;Arbon
+K103;Ohne Mail;;Romanshorn
+K104;"Werkstatt; Ost";team@werkstatt.example;Wil
+K105;Falsche Adresse;keine-email;Gossau

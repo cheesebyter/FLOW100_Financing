@@ -1,0 +1,2 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-09-25T20:00:05+00:00,live,buy,AMD_US_EQ,,n/a,0.01,528.0,,,57861561223,booked,"Auto-Booking nach Fill (Order 57861561223, Preis aus Order-Feld 'price_chf_per_share')",True

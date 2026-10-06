@@ -1,0 +1,2 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-09-24T20:15:13+00:00,live,buy,AMD_US_EQ,,market,0.01,,,,57861561223,placed_pending,"Auto-Trade: Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
