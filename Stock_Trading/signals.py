@@ -16,7 +16,7 @@ synthetischen Daten abgedeckt (siehe tests/test_signals.py).
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Literal, Optional
 
 import pandas as pd
@@ -59,6 +59,9 @@ class SignalResult:
     # aussagekraeftig -- wird von auto_policy.is_actionable_buy() als
     # "Extended"-Filter genutzt (siehe STRATEGY.md, Automatisierungs-Policy).
     pct_above_breakout: float = 0.0
+    # Tagesschlusskurse (aufsteigend) -- fuer die Stop-Pruefung in
+    # auto_trade.py (Hoechstkurs seit Einstieg). Nur von get_signals() gesetzt.
+    closes: Optional[pd.Series] = field(default=None, repr=False, compare=False)
 
 
 def _rsi(series: pd.Series, period: int = 14) -> pd.Series:
@@ -125,6 +128,7 @@ def get_signals(universe: dict[str, str] = UNIVERSE) -> list[SignalResult]:
             continue
         result.t212_ticker = t212_ticker
         result.yahoo_symbol = yahoo_symbol
+        result.closes = history["Close"].dropna()
         results.append(result)
     return results
 

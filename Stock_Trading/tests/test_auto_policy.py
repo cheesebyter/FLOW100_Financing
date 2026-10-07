@@ -68,17 +68,17 @@ def test_has_open_order_true_false():
 
 
 def test_sizing_normal_case_uses_position_fraction():
-    # Ledger-Gesamtwert 200, 45% davon = 90 CHF Ziel; genug Cash und API-Cash vorhanden.
+    # Ledger-Gesamtwert 200, 30% davon = 60 CHF Ziel; genug Cash und API-Cash vorhanden.
     sizing = compute_buy_quantity(
         price_chf=100.0, ledger_cash_chf=150.0, ledger_total_value_chf=200.0,
         api_available_to_trade_chf=500.0,
     )
-    assert sizing.quantity == 0.9
+    assert sizing.quantity == 0.6
     assert sizing.skip_reason == ""
 
 
 def test_sizing_capped_by_ledger_cash_reserve():
-    # Ledger-Cash nur 20 CHF -> 90% davon = 18 CHF Ziel (kleiner als 45%-Ziel von 90).
+    # Ledger-Cash nur 20 CHF -> 90% davon = 18 CHF Ziel (kleiner als 30%-Ziel von 60).
     sizing = compute_buy_quantity(
         price_chf=100.0, ledger_cash_chf=20.0, ledger_total_value_chf=200.0,
         api_available_to_trade_chf=500.0,
@@ -120,7 +120,14 @@ def test_drawdown_alert_threshold():
 
 
 def test_max_open_positions_constant_matches_strategy():
-    assert MAX_OPEN_POSITIONS == 2
+    assert MAX_OPEN_POSITIONS == 3
+
+
+def test_slots_times_fraction_fit_into_cash_reserve():
+    # 3 x 30% = 90% -> 10% Cash-Reserve bleibt moeglich (siehe STRATEGY.md)
+    from auto_policy import CASH_RESERVE_FRACTION, POSITION_FRACTION
+    assert POSITION_FRACTION == 0.30
+    assert MAX_OPEN_POSITIONS * POSITION_FRACTION <= 1 - CASH_RESERVE_FRACTION + 1e-9
 
 
 if __name__ == "__main__":

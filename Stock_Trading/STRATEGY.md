@@ -70,7 +70,7 @@ Signal und Ausfuehrung ist bewusst so gebaut, auch bei "hohem Risiko".
 
 ## Positionsgroessen (hohes Risiko / konzentriert)
 
-- Max. 2 gleichzeitig offene Positionen
+- Max. 3 gleichzeitig offene Positionen (seit 07.10.2026; vorher 2)
 - Je Position bis zu 40-50% des Portfoliowerts
 - Cash-Reserve: mind. 10-15% (Transaktionen, Nachkaeufe)
 - Bewusster Trade-off: weniger Diversifikation als ein defensives Depot,
@@ -197,8 +197,8 @@ Entscheidung -- SELL nutzt denselben Ledger-Schutz wie bisher, siehe
 Abschnitt "Ledger" unten).
 
 **Mechanische Regeln (`auto_policy.py`):**
-- Max. `MAX_OPEN_POSITIONS = 2` gleichzeitig offene Positionen (Ledger-Zaehlung)
-- Positionsgroesse: `POSITION_FRACTION = 0.45` (Mitte des 40-50%-Bands) des
+- Max. `MAX_OPEN_POSITIONS = 3` gleichzeitig offene Positionen (Ledger-Zaehlung; seit 07.10.2026, vorher 2)
+- Positionsgroesse: `POSITION_FRACTION = 0.30` (seit 07.10.2026, vorher 0.45) des
   Ledger-Gesamtwerts, gedeckelt durch (a) Ledger-Cash-Reserve
   (`CASH_RESERVE_FRACTION = 0.10`) und (b) tatsaechlich verfuegbares
   API-Cash mit Sicherheitsabschlag (`API_CASH_SAFETY_FACTOR = 0.95`)
@@ -279,3 +279,69 @@ tests/test_ledger.py.
 **Notabschaltung:** Die Windows-Aufgabenplanung kann jederzeit direkt in
 Windows pausiert/geloescht werden (`schtasks /change /tn <Name> /disable`)
 -- das ist die schnellste Bremse, unabhaengig von Claude.
+
+
+## Stop-Loss und Trailing-Stop live (07.10.2026)
+
+Anlass: Der Backtest (06.10.2026, siehe `backtest.py`) zeigte, dass die
+LIVE-Regeln ohne Stops einen Drawdown von -32% und einen schlechtesten Trade
+von -23% hatten; die Variante mit Stops -23% bzw. bessere Sharpe/CAGR. Die
+Stops standen bisher nur in diesem Dokument, aber nicht in `auto_trade.py`.
+Andys Entscheidung: live einbauen.
+
+**Regeln (`auto_policy.py`, Konstanten `STOP_LOSS_PCT=0.12`, `TRAILING_STOP_PCT=0.10`):**
+- Stop-Loss: Tagesschluss <= Einstand * 0.88
+- Trailing-Stop: Tagesschluss <= Hoechstschluss seit Einstieg * 0.90
+  (Hoechstkurs startet mindestens beim Einstand, Einstiegstag zaehlt mit)
+- Stop-Loss hat Vorrang vor Trailing. Beide gelten zusaetzlich zum SMA50-Exit.
+
+**Ausfuehrung:** In `auto_trade.py` (taeglich 22:15 via Windows-Aufgabenplanung,
+dieselbe Aufgabe wie bisher -- keine neue Aufgabe noetig). Die Pruefung laeuft
+auf dem Tagesschlusskurs; die Verkaufsorder wird nach US-Boersenschluss als
+Market-Order platziert und fuellt zur naechsten Eroeffnung (wie im Backtest
+modelliert). Es ist KEIN Intraday-Stopp und KEIN Stop-Order bei T212: Ein
+Gap ueber die Stop-Schwelle hinaus fuellt zum Eroeffnungskurs, nicht zur
+Schwelle.
+
+**Datenquellen:** Einstand = `averagePricePaid` und Einstiegsdatum =
+`createdAt` der T212-Position (Instrumentenwaehrung USD, vergleichbar mit
+Yahoo-Schlusskursen); Hoechstschluss aus der Yahoo-Historie seit Einstieg.
+Rechnung in USD, FX-Effekt ausserhalb der Stops (wie im Backtest).
+
+**Sicherheitsnetz:** Fehlen Kurshistorie, Einstandspreis oder Einstiegsdatum,
+oder liegt Einstand/Schluss ausserhalb 1/3..3 (Waehrung/Daten verdaechtig),
+wird die Stop-Pruefung uebersprungen und im Lauf als Hinweis ausgegeben --
+nie ein Verkauf aufgrund unplausibler Daten. Der bestehende Ledger-Schutz
+(nur verkaufen, was das Experiment besitzt) und der Duplicate-Order-Guard
+gelten unveraendert.
+
+**Transparenz:** Jeder Lauf druckt "Stop-Status offener Positionen" mit
+Einstand, Hoechstschluss, Stop-Loss-Level und Trailing-Level (auch im
+`SUMMARY_JSON` unter `stop_status`).
+
+Tests: `tests/test_stops.py` (Schwellen, Peak-Berechnung, Plausibilitaets-
+Guards, Integrationslauf mit Fake-Client).
+
+
+## Slots 3 x 30% statt 2 x 45% (07.10.2026)
+
+Entscheidung (Andy, 07.10.2026): `MAX_OPEN_POSITIONS = 3`, `POSITION_FRACTION = 0.30`
+(3 x 30% = 90%, 10% Cash-Reserve bleibt moeglich). Ersetzt die in der
+Strategie ueber der Automatisierungs-Policy genannten 2 Positionen mit 40-50%.
+
+Grundlage (`backtest.py --sensitivity`, 2020-08-27 bis 2026-10-06, Regeln inkl. Stops):
+
+| Kosten je Seite | 2 x 45% CAGR / Max.DD / Sharpe | 3 x 30% CAGR / Max.DD / Sharpe |
+|---|---|---|
+| 0.20% | 15.3% / -23.2% / 0.77 | 15.8% / -22.5% / 0.88 |
+| 0.40% | 12.8% / -25.7% / 0.67 | 13.5% / -25.0% / 0.77 |
+
+Einordnung: Der Vorteil ist klein, aber in beiden Kostenannahmen in allen drei
+Kennzahlen gleichgerichtet; kleinere Einzelpositionen (schlechtester Backtest-Trade
+bei 324 CHF: -31 statt -67 CHF) und kein blockierter Slot durch eine Mini-Position
+(AMD 0.01 Stk. am 07.10.2026). Alternativen 4 x 22% / 5 x 18% senkten den
+Drawdown staerker (-18%/-17%), kosteten aber ca. 0.6-0.7 Punkte CAGR (bei 0.40% Kosten).
+Weiterhin gilt: Der Backtest liegt mit allen Varianten hinter SPY/QQQ und hinter
+Buy&Hold auf dem Universum (Survivorship-Bias beachten); die Aenderung ist
+Risikoverteilung, kein Renditeversprechen. Bestehende Positionen (AAPL ~194 CHF, AMD ~5 CHF)
+bleiben unveraendert; das naechste BUY-Signal wird mit 30% des Ledger-Gesamtwerts gekauft.

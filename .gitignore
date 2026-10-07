@@ -1,0 +1,23 @@
+# --- Secrets ---
+.env
+**/.env
+
+# --- Python ---
+__pycache__/
+*.pyc
+
+# --- .NET Build-Ausgabe ---
+**/bin/
+**/obj/
+.vs/
+
+# --- Reproduzierbare Backtest-Daten/-Ergebnisse ---
+Stock_Trading/backtest_data/
+Stock_Trading/backtest_output/
+
+# --- Laufzeit-Logs (wachsen taeglich); CSV-Logs und Ledger bleiben versioniert ---
+Stock_Trading/logs/*.log
+
+# --- Betriebssystem ---
+Thumbs.db
+.DS_Store

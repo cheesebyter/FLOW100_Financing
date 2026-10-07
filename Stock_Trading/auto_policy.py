@@ -19,16 +19,22 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
+import pandas as pd
+
 from signals import SignalResult
 
-MAX_OPEN_POSITIONS = 2
-POSITION_FRACTION = 0.45          # Mittelwert des 40-50%-Bands aus STRATEGY.md
+MAX_OPEN_POSITIONS = 3            # seit 07.10.2026 (vorher 2), siehe STRATEGY.md "Slots 3 x 30%"
+POSITION_FRACTION = 0.30          # seit 07.10.2026 (vorher 0.45); MAX_OPEN_POSITIONS * POSITION_FRACTION <= 1 - CASH_RESERVE_FRACTION
 CASH_RESERVE_FRACTION = 0.10      # mind. 10% Cash-Reserve im Ledger belassen
 API_CASH_SAFETY_FACTOR = 0.95     # Puffer ggue. availableToTrade (Rundung/Settlement)
 MIN_TRADE_NOTIONAL_CHF = 5.0
 
 MAX_RSI_FOR_ENTRY = 75.0          # Puffer vor der oberen Signalgrenze (80)
 MAX_PCT_ABOVE_BREAKOUT = 0.05     # "Extended"-Filter: max. 5% ueber 20T-Hoch
+
+STOP_LOSS_PCT = 0.12              # Verkauf, wenn Schluss <= Einstand * (1 - 12%)
+TRAILING_STOP_PCT = 0.10          # Verkauf, wenn Schluss <= Hoechstschluss seit Einstieg * (1 - 10%)
+STOP_MAX_PRICE_RATIO = 3.0        # Plausibilitaet: Einstand/Schluss ausserhalb 1/3..3 -> Daten verdaechtig, kein Stop
 
 DRAWDOWN_ALERT_THRESHOLD = -0.25  # STRATEGY.md: -25% seit letztem Hoch
 
@@ -111,3 +117,62 @@ def compute_buy_quantity(
 
 def is_drawdown_alert(drawdown_pct: float, threshold: float = DRAWDOWN_ALERT_THRESHOLD) -> bool:
     return drawdown_pct <= threshold
+
+
+@dataclass
+class StopCheck:
+    reason: Optional[str]      # None = kein Stop ausgeloest
+    note: str = ""             # Hinweis (z.B. warum nicht pruefbar)
+    entry_price: Optional[float] = None
+    peak: Optional[float] = None
+    stop_loss_level: Optional[float] = None
+    trailing_level: Optional[float] = None
+    close: Optional[float] = None
+
+
+def peak_since(closes: pd.Series, entry_ts: str, entry_price: float) -> float:
+    """Hoechster Tagesschluss seit dem Einstiegstag (inkl. Einstiegstag),
+    mindestens der Einstandspreis -- wie im Backtest (peak startet beim Fill)."""
+    entry_date = pd.Timestamp(entry_ts).tz_convert("UTC").date() if pd.Timestamp(entry_ts).tzinfo else pd.Timestamp(entry_ts).date()
+    mask = [d >= entry_date for d in closes.index.date]
+    since = closes[mask]
+    return float(max(entry_price, since.max())) if len(since) else float(entry_price)
+
+
+def check_stop(
+    close: float, entry_price: float, peak: float,
+    stop_loss: float = STOP_LOSS_PCT, trailing: float = TRAILING_STOP_PCT,
+) -> Optional[str]:
+    """Rein mechanisch, auf Tagesschlusskurs-Basis (Order dann am Folgetag
+    zur Eroeffnung, wie im Backtest). Stop-Loss hat Vorrang vor Trailing."""
+    if close <= entry_price * (1 - stop_loss):
+        return (f"Stop-Loss: Schluss {close:.2f} <= {entry_price * (1 - stop_loss):.2f} "
+                f"(-{stop_loss * 100:.0f}% vom Einstand {entry_price:.2f})")
+    if close <= peak * (1 - trailing):
+        return (f"Trailing-Stop: Schluss {close:.2f} <= {peak * (1 - trailing):.2f} "
+                f"(-{trailing * 100:.0f}% vom Hoechstschluss {peak:.2f} seit Einstieg)")
+    return None
+
+
+def evaluate_stop(
+    close: float, closes: Optional[pd.Series], avg_price: Optional[float], created_at: Optional[str],
+) -> StopCheck:
+    """Holt alles zusammen und degradiert sauber: fehlende/unplausible Daten
+    fuehren NIE zu einem Verkauf, sondern zu einem Hinweis (note)."""
+    if closes is None or len(closes) == 0:
+        return StopCheck(None, "Stop-Pruefung uebersprungen: keine Kurshistorie", close=close)
+    if not avg_price or not created_at:
+        return StopCheck(None, "Stop-Pruefung uebersprungen: Einstandspreis/Einstiegsdatum fehlt", close=close)
+    ratio = avg_price / close if close > 0 else float("inf")
+    if not (1 / STOP_MAX_PRICE_RATIO <= ratio <= STOP_MAX_PRICE_RATIO):
+        return StopCheck(
+            None,
+            f"Stop-Pruefung uebersprungen: Einstand {avg_price:.2f} vs. Schluss {close:.2f} unplausibel "
+            f"(Waehrung/Daten pruefen)", close=close,
+        )
+    peak = peak_since(closes, created_at, avg_price)
+    return StopCheck(
+        reason=check_stop(close, avg_price, peak), entry_price=avg_price, peak=peak,
+        stop_loss_level=avg_price * (1 - STOP_LOSS_PCT), trailing_level=peak * (1 - TRAILING_STOP_PCT),
+        close=close,
+    )

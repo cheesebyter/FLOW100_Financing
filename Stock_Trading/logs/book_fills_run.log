@@ -81,3 +81,15 @@ Equity: 828.58 CHF (Drawdown: 0.00%)
 Nichts neu zu verbuchen.
 
 SUMMARY_JSON: {"env": "live", "equity": {"timestamp_utc": "2026-10-05T20:00:04+00:00", "total_value_chf": 828.58, "peak_to_date_chf": 828.58, "drawdown_pct": 0.0}, "booked": [], "still_open": [], "problems": []}
+=== Book-Fills Lauf (live) ===
+Equity: 829.42 CHF (Drawdown: 0.00%)
+
+Nichts neu zu verbuchen.
+
+SUMMARY_JSON: {"env": "live", "equity": {"timestamp_utc": "2026-10-06T20:00:04+00:00", "total_value_chf": 829.42, "peak_to_date_chf": 829.42, "drawdown_pct": 0.0}, "booked": [], "still_open": [], "problems": []}
+=== Book-Fills Lauf (live) ===
+Equity: 828.16 CHF (Drawdown: -0.28%)
+
+Nichts neu zu verbuchen.
+
+SUMMARY_JSON: {"env": "live", "equity": {"timestamp_utc": "2026-10-07T20:00:04+00:00", "total_value_chf": 828.16, "peak_to_date_chf": 830.51, "drawdown_pct": -0.0028}, "booked": [], "still_open": [], "problems": []}

@@ -153,3 +153,16 @@ python book_fills.py --env live
   Test-Order sauber funktionieren.
 - Auswahlkriterien fuer Titel (liquide Aktien/ETFs, Spreads) und
   Positionsgroessen/Risikomanagement als Regelwerk ergaenzen.
+
+
+## Stops (seit 07.10.2026)
+
+`auto_trade.py` prueft taeglich zusaetzlich Stop-Loss (-12% vom Einstand) und
+Trailing-Stop (-10% vom Hoechstschluss seit Einstieg) auf Tagesschlusskursen
+und verkauft per Market-Order (Fill zur naechsten Eroeffnung). Laeuft in der
+bestehenden Aufgabe `FLOW100_AutoTrade_Daily`. Details: STRATEGY.md,
+Abschnitt "Stop-Loss und Trailing-Stop live". Trockenlauf zur Kontrolle:
+
+    python auto_trade.py --env live
+
+(ohne `--execute`; zeigt den "Stop-Status offener Positionen").

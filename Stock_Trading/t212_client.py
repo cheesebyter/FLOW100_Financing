@@ -37,6 +37,17 @@ def find_position(positions: list, ticker: str) -> Optional[dict]:
     return next((p for p in positions if position_ticker(p) == ticker), None)
 
 
+def position_avg_price(p: dict) -> Optional[float]:
+    """Durchschnittlicher Einstandspreis pro Stueck in INSTRUMENTENWAEHRUNG
+    (z.B. USD) -- vergleichbar mit Yahoo-Schlusskursen, nicht mit CHF-Ledger."""
+    v = p.get("averagePricePaid")
+    return float(v) if v else None
+
+
+def position_created_at(p: dict) -> Optional[str]:
+    return p.get("createdAt")
+
+
 def position_price_chf(p: dict) -> Optional[float]:
     """Aktueller Kurs pro Stueck in KONTOWAEHRUNG (CHF). 'currentPrice' der
     API ist in der Instrumentenwaehrung (z.B. USD) und darf NICHT mit

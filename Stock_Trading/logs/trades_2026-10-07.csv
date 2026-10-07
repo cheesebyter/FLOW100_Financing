@@ -1,0 +1,3 @@
+timestamp_utc,environment,action,ticker,name,order_type,quantity,price,limit_price,stop_price,order_id,status,rationale,rule_check_ok
+2026-10-07T01:03:09+00:00,live,buy,AVGO_US_EQ,,market,0.26,,,,,dry_run,"Auto-Trade: Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True
+2026-10-07T20:15:17+00:00,live,buy,AMZN_US_EQ,,market,0.37,,,,58510196300,placed_pending,"Auto-Trade: Aufwaertstrend (Kurs>SMA50>SMA200) + 20T-Hoch-Breakout + RSI in [50,80]",True

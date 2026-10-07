@@ -42,13 +42,15 @@ from auto_policy import (
     MAX_OPEN_POSITIONS,
     compute_buy_quantity,
     count_open_positions,
+    evaluate_stop,
     has_open_order,
     is_actionable_buy,
     is_drawdown_alert,
 )
 from signals import get_signals
 from t212_client import (RateLimitError, T212ApiError, T212Client,
-                         find_position, position_price_chf)
+                         find_position, position_avg_price, position_created_at,
+                         position_price_chf)
 from trade_logger import log_entry
 
 
@@ -103,26 +105,52 @@ def run(env: str, execute: bool) -> dict:
 
     actions: list[dict] = []
     skipped: list[dict] = []
+    stop_status: list[dict] = []
     open_positions_count = count_open_positions(report.open_positions)
+    try:
+        account_positions = client.get_positions()
+    except (T212ApiError, RateLimitError):
+        account_positions = []
 
     for sig in signal_results:
         ticker = sig.t212_ticker
         held_qty = report.open_positions.get(ticker, 0.0)
 
+        # --- Exit-Entscheid: SMA50-Trendbruch ODER Stop-Loss/Trailing-Stop ---
+        exit_reason = None
+        if held_qty > 1e-9:
+            held_pos = find_position(account_positions, ticker)
+            stop = evaluate_stop(
+                sig.close, sig.closes,
+                position_avg_price(held_pos) if held_pos else None,
+                position_created_at(held_pos) if held_pos else None,
+            )
+            stop_status.append({
+                "ticker": ticker, "close": round(sig.close, 2),
+                "entry": round(stop.entry_price, 2) if stop.entry_price else None,
+                "peak": round(stop.peak, 2) if stop.peak else None,
+                "stop_loss_level": round(stop.stop_loss_level, 2) if stop.stop_loss_level else None,
+                "trailing_level": round(stop.trailing_level, 2) if stop.trailing_level else None,
+                "triggered": stop.reason, "note": stop.note,
+            })
+            if sig.signal == "SELL":
+                exit_reason = sig.reason
+            elif stop.reason:
+                exit_reason = stop.reason
+
         # --- SELL: Position dieses Experiments schliessen ---
-        if sig.signal == "SELL" and held_qty > 1e-9:
+        if exit_reason:
             if has_open_order(open_orders, ticker):
                 skipped.append({"ticker": ticker, "side": "sell", "reason": "Bereits offene Order fuer diesen Ticker"})
                 continue
-            positions = client.get_positions()
-            held = find_position(positions, ticker)
+            held = find_position(account_positions, ticker)
             account_qty = held.get("quantity", 0.0) if held else 0.0
             sell_qty = round(min(account_qty, held_qty), 6)
             if sell_qty <= 1e-9:
                 skipped.append({"ticker": ticker, "side": "sell", "reason": "Kein tatsaechlicher Bestand mehr (Konto=0 oder Ledger=0)"})
                 continue
 
-            action = {"ticker": ticker, "side": "sell", "quantity": sell_qty, "reason": sig.reason}
+            action = {"ticker": ticker, "side": "sell", "quantity": sell_qty, "reason": exit_reason}
             order_id = ""
             if execute:
                 result = client.place_market_order(ticker, -sell_qty)
@@ -137,7 +165,7 @@ def run(env: str, execute: bool) -> dict:
                 environment=env, action="sell", ticker=ticker, order_type="market",
                 quantity=sell_qty, order_id=order_id,
                 status="dry_run" if not execute else "placed_pending",
-                rationale=f"Auto-Trade: {sig.reason}",
+                rationale=f"Auto-Trade: {exit_reason}",
             )
             actions.append(action)
             continue
@@ -203,6 +231,7 @@ def run(env: str, execute: bool) -> dict:
         ],
         "actions": actions,
         "skipped": skipped,
+        "stop_status": stop_status,
     }
 
 
@@ -238,7 +267,18 @@ def main() -> None:
     print("Signale:")
     for s in result["signals"]:
         print(f"  {s['ticker']:15s} {s['signal']:5s} close={s['close']:.2f} rsi14={s['rsi14']:.1f}  {s['reason']}")
-    print()
+    if result.get("stop_status"):
+        print("Stop-Status offener Positionen (Tagesschluss-Basis):")
+        for st in result["stop_status"]:
+            if st["entry"] is None:
+                print(f"  {st['ticker']:15s} {st['note']}")
+            else:
+                flag = "  *** STOP AUSGELOEST ***" if st["triggered"] else ""
+                print(
+                    f"  {st['ticker']:15s} Schluss {st['close']:.2f} | Einstand {st['entry']:.2f} | Hoch {st['peak']:.2f} | "
+                    f"SL-Level {st['stop_loss_level']:.2f} | Trail-Level {st['trailing_level']:.2f}{flag}"
+                )
+        print()
     if result["actions"]:
         print("Ausgefuehrte/vorgeschlagene Aktionen:")
         for a in result["actions"]:
